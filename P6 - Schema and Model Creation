@@ -17,3 +17,17 @@ const studentSchema = new mongoose.Schema({
 const Student = mongoose.model("Student", studentSchema);
 console.log("Student Model Created");
 module.exports = Student;
+
+
+-----
+
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://127.0.0.1:27017/studentDB')
+.then(() => {
+    console.log("MongoDB Connected");
+
+    // Connect with student.js
+    const Student = require('./student');
+})
+.catch(err => console.log("Connection Error:", err));
